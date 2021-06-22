@@ -1,12 +1,18 @@
 from fastapi import FastAPI
 
+from typing import Optional
+
 
 app = FastAPI()
 
 
-@app.get('/')
-def index():
-    return {'data': 'blog list'}
+@app.get('/blog')
+def index(limit=10, published: bool = True, sort: Optional[str] = None):
+    # only get 10 published blogs
+    if published:
+        return {'data': f'{limit} published blogs from the db'}
+    else:
+        return {'data': f'{limit} blogs from the db'}
 
 
 # This one _has_ to be above app.get('/blog/{id}) because it reads down the page, so 
