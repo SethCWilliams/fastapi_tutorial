@@ -31,11 +31,10 @@ def show(id: int):
 
 
 @app.get('/blog/{id}/comments')
-def comments(id: int):
+def comments(id, limit=10):
     # fetch comments of blog with id = id
-    my_list = []
-    for i in range(1, id + 1):
-        my_list.append({'comment_number': i})
-    print(my_list)
+    # my_list = []
+    # for i in range(1, id + 1):
+    #     my_list.append({'comment_number': i})
 
-    return {'data': my_list}
+    return {'data': {'1', '2'}}
